@@ -64,12 +64,14 @@
 						<!-- navigation bar -->
 				
 					<div class='col-md-8'>
-						<form action="ow_item_edit_action.php" method="POST">
+						<form action="ow_item_edit_action.php" method="POST" enctype="multipart/form-data">
 							<div class="form-group">
 								<div class="col-md-4">
 									<label>Item Name:</label>
 
 									<input type="text" name="itemname" value="<?php echo $result['ItemName']; ?>" class="form-control">
+
+
 								</div>
 							</div>
 
@@ -102,15 +104,32 @@
 								</div>
 							</div>
 
-							<img src="<?php echo $result['ItemImage'] ?>">
+							<div class="form-group">
+								<div class="col-md-8">
+									<label>Item Image</label>
+									<input type="file" name="itemimage">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-md-8">
+									<br>
+								</div>
+							</div>
+
+							
 
 							<div class="form-group">
-								<div class="col-md-6">
+								<div class="col-md-8">
 									<input type="submit" value="Update" name="updateitem" class="btn default">
 									<button class="btn default"><a href="ow_itemlist.php">Cancel</a></button>	
 								</div>
 							</div>
 						</form>	
+					</div>
+
+					<div class='col-md-4'>
+						<img src="<?php echo $result['ItemImage'] ?>" width='300' height='300' >
 					</div>
 				</div>
 			</div>

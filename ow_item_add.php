@@ -101,10 +101,21 @@
 								</div>
 							</div>
 
-							<input type="file" name="file">
+							<div class="form-group">
+								<div class="col-md-4">
+									<label>Item Image</label>
+									<input type="file" name="itemimage">
+								</div>
+							</div>
 							
 							<div class="form-group">
-								<div class="col-md-6">
+								<div class="col-md-12">
+									<br>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-12">
 									<input type="submit" value="Save" name="saveitem" class="btn default">
 									<button class="btn default"><a href="ow_itemlist.php">Cancel</a></button>	
 								</div>

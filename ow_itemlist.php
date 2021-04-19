@@ -8,7 +8,19 @@
 </head>
 
 <?php include "ow_actionload_item.php" ?>
+<script type="text/javascript">
+	function showAlert(){
+		var c = confirm("Do you want to delete this record?");
+		if (c = true){
+			
+		}
+		else{
 
+		}
+	}
+
+
+</script>
 <body>
 
 <div class="container">
@@ -86,6 +98,7 @@
 										<td>Name</td>
 										<td>Description</td>
 										<td>Price</td>
+										<td>Image</td>
 										<td colspan="2" align="center">ACTION</td>
 									</tr>
 								<thead>
@@ -101,9 +114,10 @@
 												<td><?php echo $item["ItemName"]; ?></td>
 												<td><?php echo $item["ItemDescription"]; ?></td>
 												<td><?php echo $item["ItemPrice"]; ?></td>
-			
+												<td><img src="<?php echo $item['ItemImage'] ?>" width='100' height='100' ></td>
+										
 												<td><a href="ow_item_edit.php?edt_id=<?php echo $item["ItemID"]; ?>">EDIT</a></td>
-												<td><a href="ow_item_delete.php?del_id=<?php echo $item["ItemID"]; ?>">DELETE</a></td>
+												<td><a href="ow_item_delete.php?del_id=<?php echo $item["ItemID"]; ?>" onClick=" return showAlert()">DELETE</a></td>
 
 											</tr>
 <?php

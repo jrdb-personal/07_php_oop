@@ -65,18 +65,29 @@
 						<!--form body -->
 						<div class="col-md-10">	
 							<span><h4>My Profile</h4></span>
-							<form action="ow_action_profile.php" method="POST">
+							<form action="ow_action_profile.php" method="POST" enctype="multipart/form-data">
 								<div class="form-group">
 									<div class="col-md-4">
 										<label>First Name</label>
 										<input type="text" name="firstname" class="form-control" value="<?php echo $result['UserFirstName']; ?>">
+
+
 									</div>
 								</div>
+
 
 								<div class="form-group">
 									<div class="col-md-4">
 										<label>Last Name</label>
 										<input type="text" name="lastname" class="form-control" value="<?php echo $result['UserLastName']; ?>" >
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-md-4">
+										<label>Item Image</label>
+										<input type="file" name="userimage">
+										<img src="<?php echo $result['UserImage'] ?>" width='100' height='100' >
 									</div>
 								</div>
 

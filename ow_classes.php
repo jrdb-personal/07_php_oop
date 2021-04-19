@@ -23,6 +23,7 @@
 			    PDO::ATTR_EMULATE_PREPARES   => false,
 			];
 			try {
+			     //connect to database
 			     $this->connection = new PDO($dsn, $this->user, $this->password, $options);
 			     return $this->connection;
 			} 
@@ -110,6 +111,11 @@
 		public $UserEmail;
 		public $UserPassword;
 		public $CreatedDate;
+		public $ProfileFirstName;
+		public $ProfileLastName;
+		public $ProfileBirthdate;
+		public $ProfileGender;
+		public $ProfileImage;
 
 		//mutators
 		public function setUserID($id){
@@ -138,6 +144,10 @@
 
 		public function setProfileGender($gender){
 			$this->ProfileGender = $gender;
+		}
+
+		public function setProfileImage($img){
+			$this->ProfileImage = $img;
 		}
 
 		//accessors
@@ -169,6 +179,10 @@
 			return $this->ProfileGender;
 		}
 
+		public function getProfileImage(){
+			return $this->ProfileImage;
+		}
+
 		//db functions
 		public function registerProcess($connection, $query, $data){
 			$stmt = $connection->prepare($query);
@@ -185,6 +199,12 @@
 			$stmt = $connection->prepare($query);
 			$stmt->execute($data);
 			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+
+		public function updateCurrentProfile($connection, $query, $data){
+			$stmt = $connection->prepare($query);
+			return $stmt->execute($data);
+
 		}
 	}
 
@@ -286,8 +306,9 @@
 
 		public function updateItem($connection, $query, $data){	
 			$stmt = $connection->prepare($query);
-			$stmt->execute($data);
-			return $stmt->fetch(PDO::FETCH_ASSOC);
+			var_dump($data);
+			return $stmt->execute($data);
+			//return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
 
 		public function deleteItem($connection, $query, $data){
