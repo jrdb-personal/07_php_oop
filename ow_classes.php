@@ -6,15 +6,14 @@
 		public $password;
 		public $charset;
 		public $connection;
-
+		
 		public function __construct(){
 			$this->host = '127.0.0.1';
 			$this->dbname = 'training_phpmysql';
-			$this->user = 'admin';
+			$this->user = 'master';
 			$this->password = 'P@ssw0rd@10';
 			$this->charset = 'utf8mb4';
 		}
-
 		public function openConnection(){
 			$dsn = "mysql:host=".$this->host.";dbname=".$this->dbname.";charset=".$this->charset."";
 			$options = [
@@ -31,8 +30,8 @@
 			     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 			}
 		}
-
 		public function closeConnection(){
+
 		}
 	}
 
@@ -71,7 +70,6 @@
 			return $query;
 		}
 
-
 		public function buildQueryReadAll($table, $columns){
 			$query = "SELECT "; 
 			for($ctr=0; $ctr < count($columns); $ctr++){
@@ -81,7 +79,6 @@
 			$query .= " FROM ".$table." ";
 			return $query;
 		}
-
 
 		public function buildQueryUpdate($table, $columns, $idfield){
 			$query = "UPDATE ".$table." SET ";
@@ -103,8 +100,6 @@
 
 
 	}
-
-
 
 	class User{
 		public $UserID;

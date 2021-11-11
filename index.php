@@ -7,11 +7,9 @@
 	<script src="js/bootstrap.js"></script>
 </head>
 <body>
-
 	<div class="container">
-		<h1><label>My Online Webstore</label></h1>
+		<h1><label>My Online Store</label></h1>
 	</div>
-
 	<div class="container">
 		<div class="row">
 			<div class="container"> 
@@ -28,7 +26,6 @@
 										<input type="text" name="email" class="form-control">
 									</div>
 								</div>
-								
 								<div class="form-group">
 									<div class="col-md-4">
 									</div>
@@ -38,7 +35,6 @@
 										<input type="Password" name="password" class="form-control">
 									</div>
 								</div>
-
 								<div class="form-group">
 									<div class="col-md-5">
 										<label></label>
@@ -94,7 +90,6 @@
 			</div>
 		</div>
 	</div>
-
 <?php include('ow_page_footer.php'); ?>
 </body>
 </html>

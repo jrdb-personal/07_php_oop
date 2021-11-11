@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Online Webstore</title>
+	<title>My Online Store</title>
 	<link rel="stylesheet" type="text/css" href=css/bootstrap.css>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-<h1><label>My Online Webstore</label></h1>
+<h1><label>My Online Store</label></h1>
 </div>
 
 <div class="container">
