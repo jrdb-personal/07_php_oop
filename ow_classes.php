@@ -15,7 +15,10 @@
 			$this->charset = 'utf8mb4';
 		}
 		public function openConnection(){
-			$dsn = "mysql:host=".$this->host.";dbname=".$this->dbname.";charset=".$this->charset."";
+			$dsn = "mysql:host="
+			.$this->host.";dbname="
+			.$this->dbname.";charset="
+			.$this->charset."";
 			$options = [
 			    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 			    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -35,9 +38,7 @@
 		}
 	}
 
-
 	class QueryBuilder{
-
 		public function buildQueryCreate($table, $columns){
 			$query = "INSERT INTO ".$table."(";
 			for($ctr=0; $ctr < count($columns); $ctr++){
@@ -97,8 +98,6 @@
 			 $query = "DELETE FROM ". $table. " WHERE ". $idfield. " ";
 			 return $query;
 		}
-
-
 	}
 
 	class User{
@@ -116,31 +115,24 @@
 		public function setUserID($id){
 			$this->UserID = $id;
 		}
-
 		public function setUserEmail($email){
 			$this->UserEmail = $email;
 		}
-
 		public function setUserPassword($password){
 			$this->UserPassword = $password;
 		}
-
 		public function setProfileFirstName($firstname){
 			$this->ProfileFirstName = $firstname;
 		}
-		
 		public function setProfileLastName($lastname){
 			$this->ProfileLastName = $lastname;
 		}
-
 		public function setProfileBirthdate($birthdate){
-			$this->ProfileBirthdate = empty($birthdate)? "0000-00-00": $birthdate;
+			$this->ProfileBirthdate = empty($birthdate)?"0000-00-00":$birthdate;
 		}
-
 		public function setProfileGender($gender){
 			$this->ProfileGender = $gender;
 		}
-
 		public function setProfileImage($img){
 			$this->ProfileImage = $img;
 		}
@@ -149,31 +141,24 @@
 		public function getUserID(){
 			return $this->UserID;
 		}
-
 		public function getUserEmail(){
 			return $this->UserEmail;
 		}
-
 		public function getUserPassword(){
 			return $this->UserPassword;
 		}
-		
 		public function getProfileFirstName(){
 			return $this->ProfileFirstName;
 		}
-
 		public function getProfileLastName(){
 			return $this->ProfileLastName;
 		}
-
 		public function getProfileBirthdate(){
 			return $this->ProfileBirthdate;
 		}
-
 		public function getProfileGender(){
 			return $this->ProfileGender;
 		}
-
 		public function getProfileImage(){
 			return $this->ProfileImage;
 		}
@@ -183,23 +168,19 @@
 			$stmt = $connection->prepare($query);
 			return $stmt->execute($data);
 		}
-
 		public function signInProcess($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			$stmt->execute($data);
 			return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
-
 		public function getCurrentUser($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			$stmt->execute($data);
 			return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
-
 		public function updateCurrentProfile($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			return $stmt->execute($data);
-
 		}
 	}
 
@@ -213,39 +194,27 @@
 		public $ItemStatus;
 		public $ItemImg;
 
-		public function __construct(){
-			//$this->ItemID = $id;
-			//$this->ItemStatus = $status;
-		}
-
 		public function setItemID($id){
 			$this->ItemID = $id;
 		}
-
 		public function setItemName($name){
 			$this->ItemName = $name;
 		}
-
 		public function setItemType($type){
 			$this->ItemType = $type;
 		}
-
 		public function setItemDesc($desc){
 			$this->ItemDesc = $desc;
 		}
-
 		public function setItemPrice($price){
 			$this->ItemPrice = $price;
 		}
-
 		public function setItemQty($qty){
 			$this->ItemQty = $qty;
 		}
-
 		public function setItemStatus($status){
 			$this->ItemStatus = $status;
 		}
-
 		public function setItemImg($img){
 			$this->ItemImg = $img;
 		}
@@ -253,31 +222,24 @@
 		public function getItemID(){
 			return $this->ItemID;
 		}
-
 		public function getItemName(){
 			return $this->ItemName;
 		}
-
 		public function getItemType(){
 			return $this->ItemType;
 		}
-
 		public function getItemDesc(){
 			return $this->ItemDesc;
 		}
-
 		public function getItemPrice(){
 			return $this->ItemPrice;
 		}
-
 		public function getItemQty(){
 			return $this->ItemQty;
 		}
-
 		public function getItemStatus(){
 			return $this->ItemStatus;
 		}
-
 		public function getItemImg(){
 			return $this->ItemImg;
 		}
@@ -286,31 +248,25 @@
 			$stmt = $connection->prepare($query);
 			return $stmt->execute($data);
 		}
-
 		public function viewRecord($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			$stmt->execute($data);
 			return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
-
 		public function viewAll($connection, $query){
 			$stmt = $connection->prepare($query);
 			$stmt->execute();
 			return $stmt->fetchAll(PDO::FETCH_ASSOC);
 		}
-
 		public function updateItem($connection, $query, $data){	
 			$stmt = $connection->prepare($query);
 			var_dump($data);
 			return $stmt->execute($data);
 			//return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
-
 		public function deleteItem($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			return $stmt->execute($data);
 		}
 	}
-
-
 ?>

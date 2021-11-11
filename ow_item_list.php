@@ -9,11 +9,9 @@
 
 <?php include "ow_actionload_item.php" ?>
 <body>
-
 <div class="container">
 <h1><label>My Online Store</label></h1>
 </div>
-
 <div class="container">
 	<div class="row">
 		<div class="container"> 
@@ -65,55 +63,49 @@
 					<div class="col-md-12">
 						<h3><label>Item List</label></h3>
 					</div>
-
 					<div class="col-md-12">	
-							<table class="table table-bordered">
-								<colgroup>
-									<col style="width: 10%;"/>
-									<col style="width: 25%;"/>
-									<col style="width: 5%;"/>
-									<col style="width: 15%;"/>
-									<col style="width: 15%;"/>
-									<col style="width: 15%;"/>
-									<col style="width: 15%;"/>
-								</colgroup>
-								
-								<thead>
-                                    <tr class="tablesorter-headerRow">
-										<td>Name</td>
-										<td>Description</td>
-										<td>Price</td>
-										<td>Image</td>
-										<td colspan="2" align="center">ACTION</td>
+						<table class="table table-bordered">
+							<colgroup>
+								<col style="width: 10%;"/>
+								<col style="width: 25%;"/>
+								<col style="width: 5%;"/>
+								<col style="width: 15%;"/>
+								<col style="width: 15%;"/>
+								<col style="width: 15%;"/>
+								<col style="width: 15%;"/>
+							</colgroup>
+							<thead>
+								<tr class="tablesorter-headerRow">
+									<td>Name</td>
+									<td>Description</td>
+									<td>Price</td>
+									<td>Image</td>
+									<td colspan="2" align="center">ACTION</td>
+								</tr>
+							<thead>
+							<tbody>
+							<?php 								
+								if(count($result)>0)
+								{
+									foreach ($result as $item) {
+							?>
+									<tr>
+									<td><?php echo $item["ItemName"]; ?></td>
+									<td><?php echo $item["ItemDescription"]; ?></td>
+									<td><?php echo $item["ItemPrice"]; ?></td>
+									<td><img src="<?php echo $item['ItemImage'];?>" width='100' height='100' ></td>
+									<td><a href="ow_item_edit.php?edt_id=<?php echo $item["ItemID"]; ?>">EDIT</a></td>
+									<td><a href="ow_item_delete.php?del_id=<?php echo $item["ItemID"]; ?>">DELETE</a></td>
 									</tr>
-								<thead>
-								
-								<tbody>
-<?php 								
-									if(count($result)>0)
-									{
-										foreach ($result as $item) {
-
-?>
-											<tr>
-												<td><?php echo $item["ItemName"]; ?></td>
-												<td><?php echo $item["ItemDescription"]; ?></td>
-												<td><?php echo $item["ItemPrice"]; ?></td>
-												<td><img src="<?php echo $item['ItemImage'] ?>" width='100' height='100' ></td>
-												<td><a href="ow_item_edit.php?edt_id=<?php echo $item["ItemID"]; ?>">EDIT</a></td>
-												<td><a href="ow_item_delete.php?del_id=<?php echo $item["ItemID"]; ?>">DELETE</a></td>
-
-											</tr>
-<?php
-
-										}
+							<?php
 									}
-									else
-									{
-?>
-										<tr><td colspan="5">No Records Found</td></tr><?php
-									}
-?>
+								}
+								else
+								{
+							?>
+									<tr><td colspan="5">No Records Found</td></tr><?php
+								}
+							?>
 								<tr>
 									<td colspan="7">
 										<button class="btn"><a href="ow_item_add.php">ADD NEW</a></button>
@@ -121,7 +113,6 @@
 									</td>
 								</tr>
 							</tbody>
-		
 							<tfoot>
 								<tr><td colspan="7">
 									Total Records: <?php echo count($result); ?>

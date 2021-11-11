@@ -38,7 +38,6 @@
 									  <li><a href="ow_action_logout.php">Logout</a></li>
 									</ul>
 								  </li>
-								  
 								  <li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown">Products<span class="caret"></span></a>
 									<ul class="dropdown-menu">

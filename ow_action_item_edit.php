@@ -1,6 +1,5 @@
 <?php
 include_once 'ow_classes.php';
-
 $objConn = new Connection;
 $pdoConn = $objConn->openConnection();
 session_start();
@@ -17,15 +16,17 @@ if(isset($_POST['updateitem'])){
 	$objItem->setItemImg($target_file);
 
 	$objQBuilder = new QueryBuilder;
-	$query = $objQBuilder->buildQueryUpdate('tb_items', ['ItemName', 'ItemDescription', 'ItemPrice', 'ItemImage'], ['ItemID = ?']);
-
-	$result = $objItem->updateItem($pdoConn, $query, [$objItem->getItemName(), $objItem->getItemDesc(), $objItem->getItemPrice(), $objItem->getItemImg(), current($objItem->getItemID())]);
+	$query = $objQBuilder->buildQueryUpdate('tb_items', 
+	['ItemName', 'ItemDescription', 'ItemPrice', 'ItemImage'], 
+	['ItemID = ?']);
+	$result = $objItem->updateItem($pdoConn, $query, 
+	[$objItem->getItemName(), $objItem->getItemDesc(), 
+	$objItem->getItemPrice(), $objItem->getItemImg(), 
+	current($objItem->getItemID())]);
 
 	//do actual upload to img folder
 	move_uploaded_file($_FILES["itemimage"]["tmp_name"], $target_file);
-
 	header("Location:ow_item_list.php");
-	
 }
 
 ?>

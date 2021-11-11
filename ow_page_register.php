@@ -27,8 +27,6 @@
 								<input type="text" name="email" class="form-control">
 							</div>
 						</div>
-
-
 						<div class="form-group">
 							<div class="col-md-4">	
 							</div>
@@ -37,24 +35,23 @@
 								<input type="password" name="password" class="form-control">
 							</div>
 						</div>
-
 						<div class="form-group">
 							<div class="col-md-4">
 							</div>
-
 							<div class="col-md-3 col-md-offset-10">
 								<label>Confirm Password:</label>
 								<input type="Password" name="cpassword" class="form-control">
 							</div>
 						</div>
-
 						<div class="form-group">
 							<div class="col-md-5">
 								<label></label>
 							</div>
 							<div class="col-md-5 col-md-offset-10">
-								<input type="submit" value="Register" name="register" class="btn default">
-								<button class="btn default"><a href="index.php">Cancel</a></button>	
+								<input type="submit" value="Register" name="register" 
+								class="btn default">
+								<button class="btn default"><a href="index.php">
+								Cancel</a></button>	
 							</div>
 						</div>
 					</form>	

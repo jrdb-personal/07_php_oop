@@ -15,7 +15,6 @@
 			<div class="container"> 
 				<div class="panel panel-default">
 					<div class="panel-body">
-						
 						<div class="col-md-10">	
 							<form action="ow_action_login.php" method="POST">
 								<div class="form-group">
@@ -40,8 +39,10 @@
 										<label></label>
 									</div>
 									<div class="col-md-5 col-md-offset-10">
-										<input type="submit" value="Log In" name="login" class="btn default">
-										<button class="btn default"><a href="ow_page_register.php">Register</a></button>	
+										<input type="submit" value="Log In" name="login" 
+										class="btn default">
+										<button class="btn default"><a href="ow_page_register.php">
+										Register</a></button>	
 									</div>
 								</div>
 							</form>	

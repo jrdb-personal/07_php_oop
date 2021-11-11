@@ -63,56 +63,49 @@
 						<!-- navigation bar -->
 				
 					<div class='col-md-8'>
-						<form action="ow_action_item_add.php" method="POST" enctype="multipart/form-data">
+						<form action="ow_action_item_add.php" method="POST" 
+						enctype="multipart/form-data">
 							<div class="form-group">
 								<div class="col-md-4">
 									<label>Item Name:</label>
 									<input type="text" name="itemname" class="form-control">
 								</div>
 							</div>
-
 							<div class="form-group">
 								<div class="col-md-12">
 									<label>Item Description</label>
 									<input type="text" name="itemdesc" class="form-control">
 								</div>
 							</div>
-						
 							<div class="form-group">
 								<div class="col-md-4">
 									<label>Item Price</label>
 									<input type="text" name="itemprice" class="form-control">
 								</div>
 							</div>
-
 							<div class="form-group">
 								<div class="col-md-4">
 									<label>Item Type</label>
 									<input type="text" name="itemtype" class="form-control">
 								</div>
 							</div>
-
-
 							<div class="form-group">
 								<div class="col-md-4">
 									<label>Item Status</label>
 									<input type="text" name="itemstatus" class="form-control">
 								</div>
 							</div>
-
 							<div class="form-group">
 								<div class="col-md-4">
 									<label>Item Image</label>
 									<input type="file" name="itemimage">
 								</div>
 							</div>
-							
 							<div class="form-group">
 								<div class="col-md-12">
 									<br>
 								</div>
 							</div>
-
 							<div class="form-group">
 								<div class="col-md-12">
 									<input type="submit" value="Save" name="saveitem" class="btn default">

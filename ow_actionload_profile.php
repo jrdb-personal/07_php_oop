@@ -9,7 +9,8 @@ $objUser = new User;
 $objUser->setUserID($_SESSION['UserID']);
 
 $objQBuilder = new QueryBuilder;
-$query = $objQBuilder->buildQueryRead('tb_users', ['UserID', 'UserEmail', 'UserPassword', 'UserFirstName', 'UserLastName', 'UserBirthdate', 'UserGender', 'UserImage'], ['UserID = ?']);
+$query = $objQBuilder->buildQueryRead('tb_users', 
+['UserID', 'UserEmail', 'UserPassword', 'UserFirstName', 'UserLastName', 'UserBirthdate', 'UserGender', 'UserImage'], ['UserID = ?']);
 $result = $objUser->getCurrentUser($pdoConn, $query, [$objUser->getUserID()]);
 
 ?>
