@@ -68,7 +68,7 @@
 								<div class="form-group">
 									<div class="col-md-4">
 										<label>First Name</label>
-										<input type="text" name="firstname" class="form-control" value="<?php echo $result['UserFirstName']; ?>">
+										<input type="text" name="firstname" class="form-control" value="<?php echo is_null($result)? "" : $result['ProfileFirstName']; ?>">
 
 
 									</div>
@@ -78,7 +78,7 @@
 								<div class="form-group">
 									<div class="col-md-4">
 										<label>Last Name</label>
-										<input type="text" name="lastname" class="form-control" value="<?php echo $result['UserLastName']; ?>" >
+										<input type="text" name="lastname" class="form-control" value="<?php echo is_null($result)? "" : $result['ProfileLastName']; ?>" >
 									</div>
 								</div>
 
@@ -93,7 +93,7 @@
 								<div class="form-group">
 									<div class="col-md-5">
 										<label>Birdthdate</label>
-										<input type="text" name="birthdate" class="form-control" value="<?php echo $result['UserBirthdate']; ?>">
+										<input type="text" name="birthdate" class="form-control" value="<?php echo is_null($result)? "" : $result['ProfileBirthdate']; ?>">
 									</div>
 								</div>
 
@@ -102,8 +102,8 @@
 									<div class="col-md-3">
 										<label>Gender</label>
 										<select name="gender" class="form-control">
-											<option value="Male" <?php echo $result['UserGender'] == "Male" ? "selected" : ""; ?>>Male</option>
-											<option value="Female"<?php echo $result['UserGender'] == "Female" ? "selected" : ""; ?>>Female</option>
+											<option value="Male" <?php echo is_null($result)? "" : ($result['ProfileGender'] == "Male" ? "selected" : ""); ?>>Male</option>
+											<option value="Female"<?php echo is_null($result)? "" : ($result['ProfileGender'] == "Female" ? "selected" : ""); ?>>Female</option>
 										</select>
 									</div>
 								</div>

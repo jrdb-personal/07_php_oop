@@ -10,7 +10,7 @@
 		public function __construct(){
 			$this->host = '127.0.0.1';
 			$this->dbname = 'training_phpmysql';
-			$this->user = 'master';
+			$this->user = 'admin';
 			$this->password = 'P@ssw0rd@10';
 			$this->charset = 'utf8mb4';
 		}
@@ -104,12 +104,8 @@
 		public $UserID;
 		public $UserEmail;
 		public $UserPassword;
-		public $CreatedDate;
-		public $ProfileFirstName;
-		public $ProfileLastName;
-		public $ProfileBirthdate;
-		public $ProfileGender;
-		public $ProfileImage;
+		public $UserCreatedDate;
+
 
 		//mutators
 		public function setUserID($id){
@@ -120,6 +116,49 @@
 		}
 		public function setUserPassword($password){
 			$this->UserPassword = $password;
+		}
+
+
+		//accessors
+		public function getUserID(){
+			return $this->UserID;
+		}
+		public function getUserEmail(){
+			return $this->UserEmail;
+		}
+		public function getUserPassword(){
+			return $this->UserPassword;
+		}
+
+
+		//db functions
+		public function registerProcess($connection, $query, $data){
+			$stmt = $connection->prepare($query);
+			return $stmt->execute($data);
+		}
+		public function signInProcess($connection, $query, $data){
+			$stmt = $connection->prepare($query);
+			$stmt->execute($data);
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+		public function getCurrentUser($connection, $query, $data){
+			$stmt = $connection->prepare($query);
+			$stmt->execute($data);
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+		}
+	}
+
+	class Profile{
+		public $UserID;
+		public $ProfileFirstName;
+		public $ProfileLastName;
+		public $ProfileBirthdate;
+		public $ProfileGender;
+		public $ProfileImage;
+
+
+		public function setUserID($id){
+			$this->UserID = $id;
 		}
 		public function setProfileFirstName($firstname){
 			$this->ProfileFirstName = $firstname;
@@ -137,15 +176,8 @@
 			$this->ProfileImage = $img;
 		}
 
-		//accessors
 		public function getUserID(){
 			return $this->UserID;
-		}
-		public function getUserEmail(){
-			return $this->UserEmail;
-		}
-		public function getUserPassword(){
-			return $this->UserPassword;
 		}
 		public function getProfileFirstName(){
 			return $this->ProfileFirstName;
@@ -163,22 +195,13 @@
 			return $this->ProfileImage;
 		}
 
-		//db functions
-		public function registerProcess($connection, $query, $data){
-			$stmt = $connection->prepare($query);
-			return $stmt->execute($data);
-		}
-		public function signInProcess($connection, $query, $data){
+		public function getCurrentProfile($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			$stmt->execute($data);
 			return $stmt->fetch(PDO::FETCH_ASSOC);
 		}
-		public function getCurrentUser($connection, $query, $data){
-			$stmt = $connection->prepare($query);
-			$stmt->execute($data);
-			return $stmt->fetch(PDO::FETCH_ASSOC);
-		}
-		public function updateCurrentProfile($connection, $query, $data){
+
+		public function upsertProfile($connection, $query, $data){
 			$stmt = $connection->prepare($query);
 			return $stmt->execute($data);
 		}
@@ -260,7 +283,6 @@
 		}
 		public function updateItem($connection, $query, $data){	
 			$stmt = $connection->prepare($query);
-			var_dump($data);
 			return $stmt->execute($data);
 			//return $stmt->fetch(PDO::FETCH_ASSOC);
 		}

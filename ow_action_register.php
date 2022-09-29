@@ -23,7 +23,7 @@ if(isset($_POST['register'])){
 	}
 
 	else{
-		header("Location :ow_page_register.php");
+		header("Location:ow_page_register.php");
 	}
 }
 

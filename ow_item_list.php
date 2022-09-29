@@ -72,7 +72,6 @@
 								<col style="width: 15%;"/>
 								<col style="width: 15%;"/>
 								<col style="width: 15%;"/>
-								<col style="width: 15%;"/>
 							</colgroup>
 							<thead>
 								<tr class="tablesorter-headerRow">

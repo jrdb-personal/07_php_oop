@@ -23,11 +23,11 @@ if(isset($_POST['login'])){
 		header("Location:ow_page_home.php");
 	}
 	else{
-		header("Location :index.php");
+		header("Location:index.php");
 	}
 }
 else {
-	header("location :index.php");
+	header("Location:index.php");
 }
 
 
